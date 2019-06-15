@@ -1,0 +1,84 @@
+spring:
+  datasource:
+  # 使用Druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+    # 数据源配置
+      db-type: mysql
+      url: jdbc:mysql://localhost:3306/sn?characterEncoding=UTF-8&useSSL=false
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
+      # 初始化时建立的物理连接个数
+      initial-size: 5
+      # 最大连接池数量
+      max-active: 20
+      # 最小连接池数量
+      min-idle: 5
+      # 获取连接时最大等待时间，单位毫秒
+      max-wait: 60000
+      # 是否缓存preparedStatement(PSCache), MySQL下建议关闭
+      pool-prepared-statements: false
+      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
+      max-pool-prepared-statement-per-connection-size: -1
+      # 用来检测连接是否有效的sql
+      validation-query: SELECT 1
+      # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      # 建议配置为true，不影响性能，并且保证安全性
+      test-while-idle: true
+      # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false
+      # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      # 连接保持空闲而不被驱逐的最小时间
+      min-evictable-idle-time-millis: 600000
+      # 连接保持空闲而不被驱逐的最大时间
+      max-evictable-idle-time-millis: 900000
+      # 连接池中的minIdle数量以内的连接，空闲时间超过minEvictableIdleTimeMillis，则会执行keepAlive操作
+      keep-alive: true
+      # 1.Destroy线程会检测连接的间隔时间，如果连接空闲时间大于等于minEvictableIdleTimeMillis则关闭物理连接
+      # 2.testWhileIdle的判断依据
+      time-between-eviction-runs-millis: 2000
+      # 属性类型是字符串，通过别名的方式配置扩展插件
+      filter:
+        stat:
+          enabled: true
+          db-type: mysql
+        slf4j:
+          enabled: true
+        wall:
+          enabled: true
+          db-type: mysql
+      # web-stat-filter用于采集web-jdbc关联监控的数据
+      web-stat-filter:
+        enabled: true
+        # 排除一些不必要的url，比如*.js,/jslib/*等等
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+        # 监控路径
+        url-pattern: /*
+        session-stat-max-count: 1000
+        # 关闭session统计功能
+        session-stat-enable: false
+        # 当前的session的用户
+        principal-session-name: admin
+        # 当前的user
+        principal-cookie-name: admin
+        # 监控单个url调用的sql列表。
+        profile-enable: true
+      # StatViewServlet用于展示Druid的统计信息
+      # 1.提供监控信息展示的html页面
+      # 2.提供监控信息的JSON API
+      stat-view-servlet:
+        enabled: true
+        # 访问路径
+        url-pattern: /druid/*
+        # 允许清空统计数据
+        reset-enable: true
+        login-username: admin
+        login-password: admin
+        # 访问控制: allow和deny
+        # deny优先于allow，如果在deny列表中，就算在allow列表中，也会被拒绝
+        # 如果allow没有配置或者为空，则允许所有访问
+        allow:
+        deny:
+
