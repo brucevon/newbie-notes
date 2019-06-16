@@ -5,3 +5,10 @@ spring:
   profiles:
     include:
       - datasource
+      - mybatis
+
+logging:
+  level:
+    com:
+      brucevon:
+        base: debug
