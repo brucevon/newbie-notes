@@ -1,5 +1,6 @@
 package com.brucevon.base;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author BruceVon
  */
+@MapperScan("com.brucevon.base.dao")
 @SpringBootApplication
 public class Application {
 
