@@ -3,6 +3,9 @@ package com.brucevon.base.controller;
 import com.brucevon.base.model.vo.ResultVo;
 import com.brucevon.base.model.vo.UserVo;
 import com.brucevon.base.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,7 @@ import static com.brucevon.base.constant.ControllerConstantEnum.SUCCESS;
  *
  * @author BruceVon
  */
+@Api(tags = "用户模块")
 @Slf4j
 @RequestMapping("/user")
 @RestController
@@ -34,6 +38,12 @@ public class UserController {
      * @param id user id
      * @return ResultVo
      */
+    @ApiOperation(value = "获取用户", notes = "根据用户id获取用户信息")
+    @ApiImplicitParam(
+            name = "id",
+            value = "用户id",
+            required = true,
+            dataType = "integer")
     @GetMapping("/{id}")
     public ResultVo<?> getUser(final @PathVariable int id) {
         log.info("Request start: /user/{}", id);
