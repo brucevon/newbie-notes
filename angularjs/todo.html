@@ -18,10 +18,14 @@
                 {action: "Buy Flowers", done: false}
             ]
         };
+
+        todoApp.controller("ToDoCtrl", function ($scope) {
+            $scope.todo = model;
+        });
     </script>
 </head>
 <body>
-<body>
+<body ng-controller="ToDoCtrl">
 <div class="page-header">
     <h1>Adam's To Do List</h1>
 </div>
@@ -39,8 +43,7 @@
             <th>Done</th>
         </tr>
         </thead>
-        <tbody>
-        </tbody>
+        <tbody></tbody>
     </table>
 </div>
 </body>
