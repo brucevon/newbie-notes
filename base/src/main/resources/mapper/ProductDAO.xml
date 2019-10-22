@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.brucevon.base.dao.ProductDAO">
+
+    <select id="listProduct" resultMap="BaseProductMap">
+        select
+        *
+        from
+        product
+    </select>
+
+    <resultMap id="BaseProductMap" type="com.brucevon.base.model.ProductDO">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="category" property="category"/>
+        <result column="price" property="price"/>
+        <result column="description" property="description"/>
+    </resultMap>
+</mapper>
