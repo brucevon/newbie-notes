@@ -1,20 +1,15 @@
 angular.module("sportsStore")
-    .controller("sportsStoreCtrl", function ($scope) {
+    .constant("dataUrl", "http://localhost:9000/base/product/list")
+    .controller("sportsStoreCtrl", function ($scope, $http, dataUrl) {
 
-        $scope.data = {
-            products: [
-                {
-                    name: "Product #1", description: "A product", category: "Category #1", price: 100
-                },
-                {
-                    name: "Product #2", description: "A product", category: "Category #2", price: 110
-                },
-                {
-                    name: "Product #3", description: "A product", category: "Category #3", price: 210
-                },
-                {
-                    name: "Product #4", description: "A product", category: "Category #4", price: 202
-                }
-            ]
-        };
+        $scope.data = {};
+
+        $http({
+            method: 'GET',
+            url: dataUrl
+        }).then(function successCallback(response) {
+            $scope.data.products = response.data;
+        }).then(function errorCallback(response) {
+            $scope.data.error = response.error;
+        });
     });
