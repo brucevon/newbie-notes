@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating Controller</title>
+    <script src="angular.js"></script>
+    <script>
+        angular.module("notesApp", [])
+            .controller('MainCtrl', [function () {
+                console.log('MainCtrl has been created')
+            }]);
+    </script>
+</head>
+<body ng-controller="MainCtrl">
+Hello {{1 + 1}}nd time AngularJS
+</body>
+</html>
