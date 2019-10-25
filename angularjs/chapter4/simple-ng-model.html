@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notesApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple ng-model</title>
+    <script src="angular.js"></script>
+    <script>
+        angular.module('notesApp', [])
+            .controller('MainCtrl', [function () {
+                var self = this;
+
+                self.username = 'nothing';
+            }]);
+    </script>
+</head>
+<body ng-controller="MainCtrl as ctrl">
+<input type="text" ng-model="ctrl.username"/>
+You typed {{ctrl.username}}
+</body>
+</html>
