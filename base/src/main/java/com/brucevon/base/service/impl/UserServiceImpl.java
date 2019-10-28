@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
      * @return UserVo
      */
     @Override
-    public UserVo getUser(final int id) {
+    public UserVo getUser(final String id) {
         log.debug("Entering getUser(id: [{}])", id);
         UserVo userVo = userDao.getUser(id);
         log.debug("Leaving getUser: [{}]", userVo);

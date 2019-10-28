@@ -18,5 +18,5 @@ public interface UserDao {
      * @param id user id
      * @return UserDto
      */
-    UserVo getUser(@Param("id") int id);
+    UserVo getUser(@Param("id") String id);
 }

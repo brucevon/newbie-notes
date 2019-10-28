@@ -17,7 +17,7 @@ public class UserVo {
     /**
      * id.
      */
-    private Integer id;
+    private String id;
 
     /**
      * username.

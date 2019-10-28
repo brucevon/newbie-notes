@@ -17,7 +17,7 @@ public class UserDto {
     /**
      * id.
      */
-    private Integer id;
+    private String id;
 
     /**
      * username.

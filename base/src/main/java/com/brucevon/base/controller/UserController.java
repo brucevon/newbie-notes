@@ -1,11 +1,10 @@
 package com.brucevon.base.controller;
 
+import com.brucevon.base.annotation.UserLoginToken;
 import com.brucevon.base.model.vo.ResultVo;
 import com.brucevon.base.model.vo.UserVo;
 import com.brucevon.base.service.UserService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,14 +37,9 @@ public class UserController {
      * @param id user id
      * @return ResultVo
      */
-    @ApiOperation(value = "获取用户", notes = "根据用户id获取用户信息")
-    @ApiImplicitParam(
-            name = "id",
-            value = "用户id",
-            required = true,
-            dataType = "integer")
+    @UserLoginToken
     @GetMapping("/{id}")
-    public ResultVo<?> getUser(final @PathVariable int id) {
+    public ResultVo<?> getUser(final @PathVariable String id) {
         log.info("Request start: /user/{}", id);
         UserVo userVo = userService.getUser(id);
         ResultVo<?> resultVo = new ResultVo<>()

@@ -18,6 +18,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDO> list() {
-        return productDAO.listProduct();
+        log.debug("Entering list()");
+        List<ProductDO> productList = productDAO.listProduct();
+        log.debug("Leaving list(): {}", productDAO);
+        return productList;
     }
 }
