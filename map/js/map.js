@@ -1,36 +1,3 @@
-var townData = [
-    {"name": "威舍镇", "value": 1, "name_en": "weishe"},
-    {"name": "万屯镇", "value": 2},
-    {"name": "马岭镇", "value": 3},
-    {"name": "鲁屯镇", "value": 4},
-    {"name": "顶效镇", "value": 5},
-    {"name": "郑屯镇", "value": 6},
-    {"name": "乌沙镇", "value": 7},
-    {"name": "白碗窑镇", "value": 8},
-    {"name": "七舍镇", "value": 9},
-    {"name": "敬南镇", "value": 10},
-    {"name": "则戎乡", "value": 11},
-    {"name": "雄武乡", "value": 12},
-    {"name": "南盘江镇", "value": 13},
-    {"name": "猪场坪乡", "value": 14},
-    {"name": "捧乍镇", "value": 15},
-    {"name": "鲁布格镇", "value": 16},
-    {"name": "泥凼镇", "value": 17},
-    {"name": "三江口镇", "value": 18},
-    {"name": "仓更镇", "value": 19},
-    {"name": "沧江乡", "value": 20},
-    {"name": "洛万乡", "value": 21},
-    {"name": "清水河镇", "value": 22},
-    {"name": "坪东街道", "value": 23},
-    {"name": "木贾街道", "value": 24},
-    {"name": "丰都街道", "value": 25},
-    {"name": "桔山街道", "value": 26},
-    {"name": "万峰林街道", "value": 27},
-    {"name": "下五屯街道", "value": 28},
-    {"name": "兴泰街道", "value": 29},
-    {"name": "黄草街道", "value": 100}
-];
-
 // 获取地图容器
 var main = document.getElementById('main');
 // 基于准备好的dom，初始化echarts实例
